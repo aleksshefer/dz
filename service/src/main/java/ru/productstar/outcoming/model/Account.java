@@ -33,4 +33,13 @@ public class Account {
     public void setBalance(long balance) {
         this.balance = balance;
     }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", balance=" + balance +
+                '}';
+    }
 }

@@ -18,9 +18,9 @@ public class Application {
     public DataSource dataSource() throws SQLException {
 
         JdbcDataSource dataSource = new JdbcDataSource();
-        dataSource.setURL("jdbc:h2:tcp://localhost:9090/mem:mydb");
-        dataSource.setUser("user");
-        dataSource.setPassword("password");
+        dataSource.setURL(System.getProperty("jdbcUrl", "jdbc:h2:tcp://localhost:9090/mem:mydb"));
+        dataSource.setUser(System.getProperty("jdbcUser", "user"));
+        dataSource.setPassword(System.getProperty("jdbcPassword", "password"));
 
         try (
                 Connection connection = dataSource.getConnection();
